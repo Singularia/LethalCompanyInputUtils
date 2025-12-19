@@ -1,9 +1,18 @@
 {
   "entries": {
+    "Context.Global": "Глобальные",
+    "Context.Local": "Локальные",
+    "OverridePriority.PreferGlobal": "Глобальные в приоритете",
+    "OverridePriority.PreferLocal": "Локальные в приоритете",
+    "OverridePriority.GlobalOnly": "Только глобальные",
+    "OverridePriority.LocalOnly": "Только локальные",
     "RebindButton.ResetToDefault.PopOver": "Восстановить значение по умолчанию",
-    "RebindButton.RemoveBind.PopOver": "Снять привязку",
+    "RebindButton.RemoveBind.PopOver": "Сбросить",
     "RebindButton.NotSupportedDeviceBind.PopOver": "Привязка к данному устройству не поддерживается",
-    "BindingOverrideContextSwitch.Info.PopOver": "Данный переключатель позволяет указать настройки управления какой группы будут выбраны для просмотра/редактирования.\n\nГлобальные (Global) - Настройки управления этой группы хранятся отдельно от вашего Модпака/Профиля.\n\nЛокальные (Local) - Настройки управления этой группы привязаны к вашему Модпаку/Профилю/Ручной установке. Они могут быть перезаписаны при обновлении вашего Модпака/Профиля.\n\nНастройки управления ванильной Lethal Company считаются Глобальными. Даже если вы вносите изменения в Локальной группе, они будут сохранены как Глобальные.",
-    "BindingOverridePriorityDropdown.Info.PopOver": "Данный параметр позволяет выставить настройки какой группы будут считаться более приоритетными.\n\nГлобальные в приоритете (Prefer Global) - Глобальные настройки имеют приоритет над локальными из Модпака/Профиля/Ручной установки\n\nЛокальные в приоритете (Prefer Local) - Настройки из Модпака/Профиля/Ручной установки имеют приоритет над глобальными\n\nТолько глобальные (Global Only) - Используются только настройки глобальной группы\n\nТолько локальные (Local Only) - Используются только настройки из Модпака/Профиля/Ручной установки"
+    "RebindButton.DisabledByOverride.PopOver": "This KeyBind is being overriden by it's [OppositeContext] override.\n\nYou can view the [OppositeContext] override by clicking the [OppositeContext] Button in the top left.\n\nYou can also change the binding priorities with the DropDown that says \\[[BindingOverridePriorityConfigValue]\\] right below the [OppositeContext] Button.[OptionalPreferPriority]",
+    "RebindButton.DisabledByOverride.PopOver.Optional": "\n\nWith [BindingOverridePriorityConfigValue] set, rebinding this Control, either to the same key or a different key, is enough to fix this.",
+    "BindingOverrideContextSwitch.Info.PopOver": "Данный параметр позволяет указать настройки управления какой группы будут выбраны для просмотра/редактирования.\n\nГлобальные (Global) - Настройки управления этой группы хранятся отдельно от вашего Модпака/Профиля.\n\nЛокальные (Local) - Настройки управления этой группы привязаны к вашему Модпаку/Профилю/Ручной установке. Они могут быть перезаписаны при обновлении вашего Модпака/Профиля. Они могут быть перезаписаны после обновления вашего Профиля/Модпака.",
+    "BindingOverridePriorityDropdown.Info.PopOver": "Данный параметр позволяет выставить настройки какой группы будут считаться более приоритетными.\n\nГлобальные в приоритете (Prefer Global) - Глобальные настройки имеют приоритет над локальными из Модпака/Профиля/Ручной установки\n\nЛокальные в приоритете (Prefer Local) - Настройки из Модпака/Профиля/Ручной установки имеют приоритет над глобальными\n\nТолько глобальные (Global Only) - Используются только настройки глобальной группы\n\nТолько локальные (Local Only) - Используются только настройки из Модпака/Профиля/Ручной установки",
+    "LegacyControls.Button.Label": "Show Legacy Controls ({0} present)"
   }
 }

@@ -1,3 +1,63 @@
+### [0.7.12]
+
+Fixes:
+- Make sure the config option is registered before checking it so we don't break everything.
+
+### [0.7.11]
+
+Fixes:
+- Added an option to patch `InputManager.RegisterCustomTypes` to run in a try-catch to prevent it from causing cascading issues when it attempts to load a `Type` that references another `Type` from an optional dependency that is not currently installed. This should fix some of the recent issues where the game would launch with a "Your files could not be loaded" message. 
+
+### [0.7.10]
+
+Fixes:
+- Actually load LethalCompany keybinds
+
+### [0.7.9]
+
+Fixes:
+- Fixed issue where InputUtils failing to load LethalCompany keybinds caused other issues.
+
+### [0.7.8]
+
+Added:
+- Lethal Company keybinds now support Local keybinds, you can now ship vanilla keybinds with modpacks/profiles.
+- Added warnings for different scenarios in the rebind ui to better inform users of possible issues with their current configuration.
+
+Fixes:
+- Fixed issue when using an `-Only` priority and editing the opposite config resulting in the UI not visually updating newly rebound keys.
+
+Locale:
+- Chinese translation by @CoolLKKPS (I don't know if it's simplified or not)
+
+### [0.7.7]
+
+Fixes:
+- I also forgot to include Locale with the new build system, this fixes things for real this time.
+
+### [0.7.6]
+
+Fixes:
+- Forgot to include AssetBundles with new build system, sorry about that.
+
+### [0.7.5]
+
+Fixes:
+- Delay searching for device layouts until *after* unity has loaded, fixes a harmless error at startup.
+
+### [0.7.4]
+
+Locale:
+- Russian translation by @Singularia
+
+Developer Experience Improvements:
+
+Keyboard, Mouse, and Gamepad have generated Enums under the `LethalCompanyInputUtils.BindingPathEnums` namespace.
+These enums are called `KeyboardControl`, `MouseControl`, and `GamepadControl` respectively.
+These enums contain **all** the keys/buttons that are accepted by Unity's InputSystem.
+
+The docs have been updated to reflect usage of the Enums, you may still use the string input paths if you'd like.
+
 ### [0.7.3]
 
 Mod Integration:

@@ -12,32 +12,28 @@ using static BepInEx.BepInDependency.DependencyFlags;
 
 namespace LethalCompanyInputUtils;
 
-[BepInPlugin(ModId, ModName, ModVersion)]
+[BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
 [BepInDependency("ainavt.lc.lethalconfig", SoftDependency)]
 [BepInDependency("BMX.LobbyCompatibility", SoftDependency)]
 public class LethalCompanyInputUtilsPlugin : BaseUnityPlugin
 {
-    public const string ModId = "com.rune580.LethalCompanyInputUtils";
-    public const string ModName = "Lethal Company Input Utils";
-    public const string ModVersion = "0.7.3";
-
     private Harmony? _harmony;
     
     private void Awake()
     {
         Logging.SetLogSource(Logger);
         
-        _harmony = Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly(), ModId);
+        InputUtilsConfig.Init(this);
+
+        _harmony = Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly(), PluginInfo.PLUGIN_GUID);
         SceneManager.activeSceneChanged += OnSceneChanged;
         InputSystem.onDeviceChange += OnDeviceChanged;
-        
+
         LoadAssetBundles();
-        
+
         ControllerGlyph.LoadGlyphs();
-        
+
         FsUtils.EnsureRequiredDirs();
-        
-        InputUtilsConfig.Init(this);
         
         LocaleManager.LoadLocaleData();
 
@@ -45,7 +41,9 @@ public class LethalCompanyInputUtilsPlugin : BaseUnityPlugin
         
         ModCompat.Init(this);
         
-        Logging.Info($"InputUtils {ModVersion} has finished loading!");
+        Logging.Info($"InputUtils {PluginInfo.PLUGIN_VERSION} has finished loading!");
+        
+        SceneManager.activeSceneChanged += TryExportLayoutsOnLoad;
     }
 
     private static void LoadAssetBundles()
@@ -107,5 +105,12 @@ public class LethalCompanyInputUtilsPlugin : BaseUnityPlugin
         
         InputSystem.RegisterLayoutOverride(extendedMouseJson);
         Logging.Info("Registered InputUtilsExtendedMouse Layout Override!");
+    }
+    
+    private static void TryExportLayoutsOnLoad(Scene arg0, Scene arg1)
+    {
+        SceneManager.activeSceneChanged -= TryExportLayoutsOnLoad;
+        
+        LayoutExporter.TryExportLayouts();
     }
 }
